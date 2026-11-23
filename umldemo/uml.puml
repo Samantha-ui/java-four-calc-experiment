@@ -1,0 +1,47 @@
+@startuml
+left to right direction
+skinparam linetype ortho
+abstract class Question {
+    # int num1,num2,num3
+    # int result
+    # String expr
+    # Random rand
+    + abstract void generate()
+    + String getExpr()
+    + int getResult()
+}
+class AddQuestion {
+    - int count
+    + AddQuestion(int count)
+    + void generate()
+}
+class SubQuestion {
+    - int count
+    + SubQuestion(int count)
+    + void generate()
+}
+class MulQuestion {
+    - int count
+    + MulQuestion(int count)
+    + void generate()
+}
+class DivQuestion {
+    - int count
+    + DivQuestion(int count)
+    + void generate()
+}
+class Main {
+    + main(String[] args)
+    + static void exportCsv(List<Question> list)
+}
+class QuestionTest{
+    + void testAdd()
+    + void testSub()
+    + void testMul()
+    + void testDiv()
+}
+Question <|-- AddQuestion
+Question <|-- SubQuestion
+Question <|-- MulQuestion
+Question <|-- DivQuestion
+@enduml
